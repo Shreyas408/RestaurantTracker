@@ -1,5 +1,7 @@
 package com.example.shreyascr.restauranttracker;
 
+import android.util.Log;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,7 +13,7 @@ import org.scribe.model.Token;
 import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
 
-import com.example.shreyascr.restauranttracker.TwoStepOAuth;
+//import com.example.shreyascr.restauranttracker.TwoStepOAuth;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
@@ -55,13 +57,6 @@ public class YelpAPI {
                     .apiSecret(CONSUMER_SECRET).build();
     this.accessToken = new Token(TOKEN, TOKEN_SECRET);
   }
-    public void makeSearch(String[] input){
-        YelpAPICLI yelpApiCli = new YelpAPICLI();
-        new JCommander(yelpApiCli, input);
-
-        YelpAPI yelpApi = new YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
-        queryAPI(yelpApi, yelpApiCli);
-    }
   /**
    * Setup the Yelp API OAuth credentials.
    *
@@ -127,7 +122,8 @@ public class YelpAPI {
    * @return <tt>String</tt> body of API response
    */
   private String sendRequestAndGetResponse(OAuthRequest request) {
-    System.out.println("Querying " + request.getCompleteUrl() + " ...");
+    //System.out.println("Querying " + request.getCompleteUrl() + " ...");
+    Log.e("Query", "Querying " + request.getCompleteUrl() + " ...");
     this.service.signRequest(this.accessToken, request);
     Response response = request.send();
     return response.getBody();
@@ -189,11 +185,11 @@ public class YelpAPI {
    * <p>
    * After entering your OAuth credentials, execute <tt><b>run.sh</b></tt> to run this example.
    */
-  public static void main(String[] args) {
-    YelpAPICLI yelpApiCli = new YelpAPICLI();
-    new JCommander(yelpApiCli, args);
+  //public static void main(String[] args) {
+    //YelpAPICLI yelpApiCli = new YelpAPICLI();
+    //new JCommander(yelpApiCli, args);
 
-    YelpAPI yelpApi = new YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
-    queryAPI(yelpApi, yelpApiCli);
-  }
+    //YelpAPI yelpApi = new YelpAPI(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
+    //queryAPI(yelpApi, yelpApiCli);
+  //}
 }
