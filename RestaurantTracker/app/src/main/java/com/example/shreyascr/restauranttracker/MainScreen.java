@@ -1,5 +1,6 @@
 package com.example.shreyascr.restauranttracker;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import java.util.Scanner;
 
 public class MainScreen extends AppCompatActivity {
 
+    public final static String MESSAGE = "com.example.shreyascr.restauranttracker";
     //EditText input;
     //Button searchButton;
 
@@ -79,12 +81,17 @@ public class MainScreen extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            postExecture(result);
+            postExecute(result);
         }
     }
 
-    public void postExecture(String result){
+    public void postExecute(String result){
         Log.i("This: ", result);
+        //Load screen with search results
+        Intent intent = new Intent(this, SearchResult.class);
+
+        intent.putExtra(MESSAGE, result);
+        startActivity(intent);
     }
 
     @Override
