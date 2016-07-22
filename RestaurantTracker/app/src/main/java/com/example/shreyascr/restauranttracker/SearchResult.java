@@ -9,12 +9,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -75,13 +78,20 @@ public class SearchResult extends ListActivity {
 
         }
         adapter.notifyDataSetChanged();
+        ListView lv = getListView();
 
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
+
+                Log.i("This: ", ""+arg2);
+            }
+        });
         //setContentView(R.layout.search_result_screen);
 
 
-
     }
-
 
 
     @Override
