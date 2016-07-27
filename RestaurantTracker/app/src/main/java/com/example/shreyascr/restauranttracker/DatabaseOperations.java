@@ -44,4 +44,13 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         long val = sqlDB.insert(RestaurantTableInfo.TABLE_NAME, null, cv);
 
     }
+
+    public Cursor getInformation(DatabaseOperations dbo){
+        SQLiteDatabase SQ = dbo.getReadableDatabase();
+        String[] columns = {RestaurantTableInfo.RESTAURANT_ID, RestaurantTableInfo.RESTAURANT_NAME, RestaurantTableInfo.RESTAURANT_JSON};
+        Cursor cursor = SQ.query(RestaurantTableInfo.TABLE_NAME, columns, null, null, null, null, null);
+
+        return cursor;
+    }
+
 }

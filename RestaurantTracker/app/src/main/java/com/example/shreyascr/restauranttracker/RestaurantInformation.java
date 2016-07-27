@@ -11,7 +11,7 @@ public class RestaurantInformation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_screen);
+        setContentView(R.layout.restaurant_information_screen);
 
     }
 

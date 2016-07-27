@@ -25,7 +25,7 @@ import java.util.Scanner;
 
 public class MainScreen extends AppCompatActivity {
 
-    public final static String MESSAGE = "com.example.shreyascr.restauranttracker";
+    public final static String MESSAGE = "com.example.shreyascr.restauranttracker.MainScreen";
     //EditText input;
     //Button searchButton;
 

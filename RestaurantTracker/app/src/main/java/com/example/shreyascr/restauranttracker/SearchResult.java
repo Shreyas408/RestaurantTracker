@@ -30,6 +30,9 @@ import java.util.ArrayList;
  * Created by ShreyasCR on 6/21/16.
  */
 public class SearchResult extends ListActivity {
+
+    public final static String MESSAGE = "com.example.shreyascr.restauranttracker.SearchResult";
+
     //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
     ArrayList<String> listItems=new ArrayList<String>();
 
@@ -63,7 +66,7 @@ public class SearchResult extends ListActivity {
             System.exit(1);
         }
 
-        JSONArray businesses = (JSONArray) response.get("businesses");
+        final JSONArray businesses = (JSONArray) response.get("businesses");
 
         adapter=new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,
@@ -84,8 +87,16 @@ public class SearchResult extends ListActivity {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3) {
+                //Open up another activity so we can see the Restaurant Selection
 
-                Log.i("This: ", ""+arg2);
+                //arg2 is the position in the businesses array
+                //Create an intent to pass on that JSON.
+                //Intent intent = new Intent(this, RestaurantInformation.class);
+
+                //intent.putExtra(MESSAGE, businesses.get(arg2).toString());
+                //startActivity(intent);
+
+                //Log.i("This: ", ""+arg2);
             }
         });
         //setContentView(R.layout.search_result_screen);
